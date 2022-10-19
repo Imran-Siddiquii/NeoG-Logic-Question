@@ -25,9 +25,10 @@ Write program to take a month as an input from the user and find out whether the
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container my-4">
         <div class="row">
             <div class="col-4">
+    <label for="">12 Times table of a number</label>
     <input type="text" class="user-input">
     <div class="output"></div>
 </div>
@@ -36,54 +37,56 @@ Write program to take a month as an input from the user and find out whether the
     <input type="text" class="input-number">
     <div class="out-fibo">0,1,</div>
 </div>
+<div class="col-4">
+    <label for="" class="fibonacci">Factorial</label>
+    <input type="text" class="input-fact-number">
+    <div class="out-fact"></div>
+</div>
+
 </div>
 </div>
 </body>
 <script>
+    //tables
     document.querySelector(".user-input").addEventListener('change',(event)=>
     {
-
         const userInput=event.target.value;
         for (let i = 1; i <= 12; i++) {
             document.querySelector('.output').innerHTML=document.querySelector('.output').innerHTML  + i +"times" +"<br>"
             for (let j = 1; j <=10; j++) {
-                document.querySelector('.output').innerHTML=document.querySelector('.output').innerHTML + userInput + "*" + j + "=" + userInput * j + "<br>"
+                document.querySelector('.output').innerHTML +="<div>"+ userInput + "*" + j + "=" + userInput * j + "<div>" +"<br>"
              }
         }
+        document.querySelector('.output').innerHTML =""
+
     })
 // fibonacci
 document.querySelector('.out-fibo').style.display="none"
-
 document.querySelector('.input-number').addEventListener('change',(event)=>{
     document.querySelector('.out-fibo').style.display="block"
-
     const fiboNumber=event.target.value;
-
 var num1=0;
 var num2=1
 var sum;
-
-
 for (let i = 0; i <= fiboNumber; i++) {
     sum=num1 + num2
     document.querySelector('.out-fibo').innerText +=+sum+",";
     num1=num2;
     num2=sum;
-
 }
-
 })
 
-//factorial 
 
-const fact=num=>{
+//factorial 
+const fact=()=>{
+   var num= document.querySelector('.input-fact-number').value
     var sum=1
     for (let i = num; i >= 1; i--) {
         sum *= i  
      }
-return sum
+document.querySelector('.out-fact').innerText=sum
 }
-console.log(fact(5))
+document.querySelector('.input-fact-number').addEventListener('change',fact)
 
 </script>
 </html>
