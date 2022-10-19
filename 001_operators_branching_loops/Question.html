@@ -10,3 +10,29 @@ Write a program to find the minimum out of three given numbers. The numbers are 
 
 Write program to take a month as an input from the user and find out whether the month has 31 days or not. -->
 
+<!-- Write a program to take a number input from user and print multiplication table 12 times for that number. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logic build</title>
+</head>
+<body>
+    <input type="text" class="user-input">
+    <div class="output"></div>
+</body>
+<script>
+    document.querySelector(".user-input").addEventListener('change',(event)=>{
+        const userInput=event.target.value;
+        for (let i = 1; i <= 12; i++) {
+            document.querySelector('.output').innerHTML=document.querySelector('.output').innerHTML  + i +"times" +"<br>"
+            for (let j = 1; j <=10; j++) {
+                document.querySelector('.output').innerHTML=document.querySelector('.output').innerHTML + userInput + "*" + j + "=" + userInput * j + "<br>"
+             }
+        }
+    })
+</script>
+</html>

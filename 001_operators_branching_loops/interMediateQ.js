@@ -20,3 +20,19 @@ for(var i=0;i<6;i++){
     str=str + "\n"
 }
 console.log(str)
+
+// Write a program to take a number input from user and print multiplication table 12 times for that number.
+
+var tableNumber=12
+for (let i = 1; i <= tableNumber; i++) {
+    for (let j = 1; j <=10; j++) {
+        console.log("table of number"+ i +"*" + j +"=" + i*j)
+    }
+}
+
+var table12Time=34;
+for (let i = 1; i <= 10; i++) {
+    for (let j = 1; j <=10; j++) {
+        console.log("table", table12Time , j, "=",table12Time * j)        
+    }
+}
