@@ -19,6 +19,7 @@ for(var i=0;i<6;i++){
     }
     str=str + "\n"
 }
+console.log("neha")
 console.log(str)
 
 // Write a program to take a number input from user and print multiplication table 12 times for that number.
