@@ -27,14 +27,29 @@ Write program to take a month as an input from the user and find out whether the
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-4">
+            <div class="col-3">
     <input type="text" class="user-input">
     <div class="output"></div>
 </div>
-<div class="col-4">
+<div class="col-3">
     <label for="" class="fibonacci">fibonacci</label>
     <input type="text" class="input-number">
     <div class="out-fibo">0,1,</div>
+</div>
+
+<div class="col-3">
+    <label for="" class="fibonacci">factorial</label>
+    <input type="text" class="input-number-fact">
+    <div class="out-fact"></div>
+</div>
+<div class="col-3 ">
+    <input type="text" placeholder="check number is prime or not" class="input-number-prime">
+    <div class="out-prime"></div>
+</div>
+
+<div class="col-3 my-4">
+    <input type="text" placeholder="check weekday and weekend days" class="input-number-day">
+    <div class="out-days"></div>
 </div>
 </div>
 </div>
@@ -75,15 +90,45 @@ for (let i = 0; i <= fiboNumber; i++) {
 })
 
 //factorial 
-
-const fact=num=>{
+document.querySelector('.input-number-fact').addEventListener('change',(e)=>{
+    let num=e.target.value
     var sum=1
     for (let i = num; i >= 1; i--) {
         sum *= i  
      }
-return sum
-}
-console.log(fact(5))
+document.querySelector('.out-fact').innerText=sum
+})
+//prime number
+let outPrime=document.querySelector('.out-prime');
+document.querySelector('.input-number-prime').addEventListener('change',(e)=>{
+ var number =e.target.value
+  var flag=true
+ if(number<3){
+    outPrime.innerText="number should be great than 2"
+ }else{
+    for (let i = 2; i < number; i++) {
+        if(number%i===0){
+            flag=false
+            
+           return outPrime.innerText="number is not prime number";
+        }else
+        {
+            flag=true
+            outPrime.innerText=`number is prime number`
+            return flag
+        } 
+    }
+ }
+ return flag
+})
 
+//weekdays and weekend
+
+const weekDays=document.querySelector('.out-days')
+document.querySelector('.input-number-day').addEventListener('change',(e)=>{
+    let days=e.target.value
+    // console.log(days)
+    days.toLowerCase()=="saturday" || days.toLowerCase()=="sunday"?weekDays.innerText=`${days} is weekend days` :weekDays.innerText=`${days} is weekdays`
+})
 </script>
 </html>

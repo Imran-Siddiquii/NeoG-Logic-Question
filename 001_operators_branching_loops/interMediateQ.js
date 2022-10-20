@@ -36,3 +36,35 @@ for (let i = 1; i <= 10; i++) {
         console.log("table", table12Time , j, "=",table12Time * j)        
     }
 }
+
+// Write a Program to take a number input from user and find if the number is Prime or not.
+let flag=true
+const primeNumber=num=>{
+    if(num<3){
+        console.log("number should be greater than 2")
+    }else{
+      for (let i = 2; i < num; i++) {
+        if(num%i==0){
+            flag=false
+            console.log("this is not a prime number")
+            return flag
+        }else
+        {
+            flag=true
+            console.log("number is prime")
+           return flag
+        }
+      } }   
+      }
+primeNumber(2)
+// Write a program to take a day as an input and determine whether it is a weekday or weekend. Example: Tuesday is weekday.
+
+
+const weekday=day=>{
+    if(day.toLowerCase()=="saturday" || day.toLowerCase()=="sunday"){
+      return  day + "" +"is" + "weekend days"
+    }else{
+        return day +" " + "is weekdays"
+    }
+}
+console.log(weekday("Sunday"))
