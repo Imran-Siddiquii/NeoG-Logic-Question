@@ -37,10 +37,20 @@ Write program to take a month as an input from the user and find out whether the
     <input type="text" class="input-number">
     <div class="out-fibo">0,1,</div>
 </div>
-<div class="col-4">
+<div class="col-3">
     <label for="" class="fibonacci">Factorial</label>
     <input type="text" class="input-fact-number">
     <div class="out-fact"></div>
+</div>
+
+<div class="col-3 ">
+    <input type="text" placeholder="check number is prime or not" class="input-number-prime">
+    <div class="out-prime"></div>
+</div>
+
+<div class="col-3 my-4">
+    <input type="text" placeholder="check weekday and weekend days" class="input-number-day">
+    <div class="out-days"></div>
 </div>
 
 </div>
@@ -57,7 +67,7 @@ Write program to take a month as an input from the user and find out whether the
                 document.querySelector('.output').innerHTML +="<div>"+ userInput + "*" + j + "=" + userInput * j + "<div>" +"<br>"
              }
         }
-        document.querySelector('.output').innerHTML =""
+        // document.querySelector('.output').innerHTML =""
 
     })
 // fibonacci
@@ -86,7 +96,30 @@ const fact=()=>{
      }
 document.querySelector('.out-fact').innerText=sum
 }
-document.querySelector('.input-fact-number').addEventListener('change',fact)
+let outPrime=document.querySelector('.out-prime');
+document.querySelector('.input-number-prime').addEventListener('change',(e)=>{
+ var number =e.target.value
+  var flag=true
+ if(number<3){
+    outPrime.innerText="number should be great than 2"
+ }else{
+    for (let i = 2; i < number; i++) {
+        if(number%i===0){
+            flag=false
+
+           return outPrime.innerText="number is not prime number";
+        }else
+        {
+            flag=true
+            outPrime.innerText=`number is prime number`
+            return flag
+        } 
+    }
+ }
+ return flag
+})
+
+//weekdays and weekend
 
 const weekDays=document.querySelector('.out-days')
 document.querySelector('.input-number-day').addEventListener('change',(e)=>{
@@ -94,5 +127,6 @@ document.querySelector('.input-number-day').addEventListener('change',(e)=>{
     // console.log(days)
     days.toLowerCase()=="saturday" || days.toLowerCase()=="sunday"?weekDays.innerText=`${days} is weekend days` :weekDays.innerText=`${days} is weekdays`
 })
+
 </script>
 </html>
