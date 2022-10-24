@@ -81,25 +81,7 @@ const typeOfTriangle=(...num)=>{
 }
 typeOfTriangle(60, 60, 60)
 
-
-
-
 // Question: Medium
-
-// Question: Given two arrays, your function should return single merged array.
-// Example:
-
-// Input: mergeArray([1,3,5], [2,4,6]) ––> Output: [1,3,5,2,4,6]
-
-// Question: Given a string and an index, your function should return the character present at that index in the string.
-// Example:
-
-// Input: charAt("neoGcamp", 4) ––> Output: c
-
-// Question: Given two dates, your function should return which one comes before the other.
-// Example:
-
-// Input: minDate('02/05/2021', '24/01/2021') ––> Output: 24/01/2021
 
 
 // Given an array, your function should return the length of the array.
@@ -124,9 +106,173 @@ console.log(indexOf([3,4,2,2,4,5,2,2,1,5,45],10));
 // Input: replace([1,5,3,5,6,8], 5, 10) ––> Output: [1,10,3,10,6,8]
 
 const replace=([...num],num1,num2)=>{
-  let number=[]
 for (let i = 0; i < num.length; i++) {
+  if(num[i]===num1){
+    num[i]=num2
+  }
+}
+return num;
+}
+console.log(replace([12,34,1,455,21,34,12,54,34,],34,55))
+
+
+const replaceAll=([...num],[...num1],[...num2])=>{
+  for (let i = 0; i < num.length; i++) {
+    for (let j = 0; j < num1.length; j++) {
+      for (let k = 0; k < num2.length; k++) {
+        if(num1[j]==num[i]){
+          num[i]=num2[0] || num2[k]
+        }
+      }  
+    }
+  }
+  return num;
+  }
+  console.log(replaceAll([12,34,1,455,21,34,12,54,34],[34,12],[11,222]))
+  //  output--> [11,222,1,455,21,222,11,54,222]
+
+  const replaceMultiple=([...num],[...num1],[...num2])=>{
+    for (let i = 0; i < num.length; i++) {
+        if(num[i]==num1[0]){
+          num[i]=num2[0]
+        }
+    }
+    for (let j = 0; j < num.length; j++) {
+      if(num[j]==num1[1]){
+        num[j]=num2[1]
+      } 
+    }
+    return num
+  }
+  console.log(replaceMultiple([12,34,1,455,21,34,12,54,34],[34,12],[11,222]))
+  //  output-->  [222,11,1,455,21,11,222,54,11]
+
+
+  // Question: Given two arrays, your function should return single merged array.
+// Example:
+
+// Input: mergeArray([1,3,5], [2,4,6]) ––> Output: [1,3,5,2,4,6]
+
+const margeArray=([...arr],[...arr1])=>{
+for (let i = 0; i < arr1.length; i++) {
+  arr.push(arr1[i])
+}
+return arr;
 }
 
+console.log(margeArray([1,3,5],[2,4,6]))
+
+
+
+// Question: Given a string and an index, your function should return the character present at that index in the string.
+// Example:
+
+// Input: charAt("neoGcamp", 4) ––> Output: c
+const charAt=(string,num)=>{
+  return string.charAt(num)
 }
-console.log(replace([1,5,3,5,6,8], 5, 10))
+console.log(charAt("neoGcamp",4))
+
+
+// Question: Given two dates, your function should return which one comes before the other.
+// Example:
+// Input: minDate('02/05/2021', '24/01/2021') ––> Output: 24/01/2021
+
+const minDate=(date1,date2)=>{
+  let days1=date1.slice(0,2)
+  let month1=date1.slice(3,5)
+  let year1=date1.slice(6)
+
+  let days2=date2.slice(0,2)
+  let month2=date2.slice(3,5)
+  let year2=date2.slice(6);
+// console.log(year2)
+   (year1>year2)?(date2,"comes first"):(year1==year2 && month1>month2)?(date2,"comes first"):(year1===year2 && month1===month2 && date1>date2)?(date2,"comes fisrt"):(date1," date 1comes first")
+
+
+  if(year1>year2){
+    console.log(date2,"comes first")
+  }else if(year1==year2 && month1>month2){
+    console.log(date2,"comes first")
+  }else if(year1===year2 && month1===month2 && date1>date2){
+    console.log(date2,"comes fisrt")
+  }else{
+    console.log(date1," date 1comes first")
+  }
+}
+console.log(minDate('02/05/2028', '24/09/2022'))
+
+
+
+// Question: Footer
+
+
+// Question: Advanced
+// Write a function which generates a secret code from a given string, by shifting characters of alphabet by N places. Example:
+
+// Input: encodeString("neogcamp", 2) ––> Output: pgqiecor
+
+let alphabet=["a", "b", "c", "d", "e", "f", "g", "h","i", "j", "k", "l", "m", "n","o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+const encodeString=(string,num)=>{
+  let indexOfString=[];
+  let encode=[]
+  let indexNum;
+  for (let i = 0; i < string.length; i++) {
+     indexNum=alphabet.indexOf(string[i])
+     indexOfString.push(indexNum+num)
+  }
+
+  for (let j = 0; j < indexOfString.length; j++) {
+    encode.push(alphabet[indexOfString[j]])
+  }
+  return encode?.join('')
+}
+
+console.log(encodeString("neogcamp", 2))
+
+
+// Question: Explanation: 2 represents shifting alphabets by 2 places. a –> c, b –> d, c –> e and so on.
+// Given a sentence, return a sentence with first letter of all words as capital.
+// Example:
+
+// Input: toSentenceCase('we are neoGrammers') ––> Output: We Are NeoGrammers
+
+const toSentenceCase=string=>{
+ let newarray=[];
+   string.split(' ').forEach(element => {
+   var elements =element.charAt(0).toUpperCase() + element.slice(1)
+    newarray.push(elements)
+  })
+  return newarray.join(' ')
+}
+console.log(toSentenceCase('we are neoGrammers, i am selected by neog'))
+
+// Question: Given an array of numbers, your function should return an array in the ascending order.
+// Example:
+
+// Input: sortArray([100,83,32,9,45,61]) ––> Output: [9,32,45,61,83,100]
+
+const sortArray=(array)=>{
+return array.sort((a,b)=> b - a)
+}
+console.log(sortArray([100,83,32,9,45,61]))
+
+
+// Question: Given a sentence, your function should reverse the order of characters in each word, keeping same sequence of words.
+// Example:
+
+// Input: reverseCharactersOfWord('we are neoGrammers') –––> Output: ew era sremmarGoen
+
+
+const reverseCharactersOfWord=string=>{
+  let newArray=[]
+  let value;
+  string.split(' ').forEach(element => {
+  value = element.split('').reverse('').join('')
+ newArray.push(value)
+  });
+  return newArray.join(" ")
+}
+
+console.log(reverseCharactersOfWord('we are neoGrammers'))

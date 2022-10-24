@@ -54,5 +54,3 @@ Question: Given a sentence, your function should reverse the order of characters
 Example:
 
 Input: reverseCharactersOfWord('we are neoGrammers') –––> Output: ew era sremmarGoen
-
-Question: Footer
