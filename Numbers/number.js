@@ -5,10 +5,10 @@
 // Sum : 60
 
 const readline = require('readline-sync')
-// let a=readline.question("Input Number 1 : ")
-// let b=readline.question("Input Number 2 : ")
-// const sum=(a,b)=>Number(a) + Number(b);
-// console.log(sum(a,b))   
+let a=readline.question("Input Number 1 : ")
+let b=readline.question("Input Number 2 : ")
+const sum=(a,b)=>Number(a) + Number(b);
+console.log(sum(a,b))   
 
 
 // Write a JavaScript program to calculate the simple interest given P,R,T with the given formula. Formula: SI = (P * T * R) / 100 Where: P = principal amount T = time R = rate SI = simple interest
@@ -16,11 +16,11 @@ const readline = require('readline-sync')
 // Input: P=100, R=6%, T=2
 // Output: 12
 
-// let P=readline.question("Principa amount : ")
-// let T = readline.question("Time : ")
-// let SI=readline.question("Simple Interest : ")
-// const simpleInterest=(p,t,si)=>(p*t*si)/100
-// console.log(simpleInterest(P,T,SI))
+let P=readline.question("Principa amount : ")
+let T = readline.question("Time : ")
+let SI=readline.question("Simple Interest : ")
+const simpleInterest=(p,t,si)=>(p*t*si)/100
+console.log(simpleInterest(P,T,SI))
 
 // Write a program to calculate the kinetic energy of a body with mass 'm' and volume 'v'.
 
